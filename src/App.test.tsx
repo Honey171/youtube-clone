@@ -1,9 +1,27 @@
 import React from 'react';
-import { render, screen } from '@testing-library/react';
-import App from './App';
 
-test('renders learn react link', () => {
-  render(<App />);
-  const linkElement = screen.getByText(/learn react/i);
-  expect(linkElement).toBeInTheDocument();
-});
+import { Routes, Route } from 'react-router-dom';
+import Home from './pages/Home';
+import Search from './pages/Search';
+import Watch from './pages/Watch';
+
+function App() {
+  return (
+    <Routes>
+      <Route
+        path="/"
+        element={<Home />}
+      />
+      <Route
+        path="/search"
+        element={<Search />}
+      />
+      <Route
+        path="/watch/:id"
+        element={<Watch />}
+      />
+    </Routes>
+  );
+}
+
+export default App;
